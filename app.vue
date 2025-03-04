@@ -1,7 +1,9 @@
 <template>
 	<div class="body">
 		<Nav />
-		<NuxtPage />
+		<div style="padding-top: 50px">
+			<NuxtPage />
+		</div>
 	</div>
 </template>
 
@@ -15,6 +17,11 @@
 .body {
 	/* Used as a "virtual" body, as Nuxt already has a body */
 	overflow-y: hidden;
-	font-family: "Inter";
+	font-family: "Quicksand";
+}
+
+.limit-width {
+	max-width: 1080px;
+	margin: 0 auto;
 }
 </style>
