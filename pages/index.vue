@@ -1,3 +1,3 @@
 <template>
-	<NuxtLink to="/long">Lang version</NuxtLink>
+	<div></div>
 </template>
