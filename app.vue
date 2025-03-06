@@ -1,9 +1,7 @@
 <template>
 	<div class="body">
-		<Nav />
-		<div style="padding-top: 50px">
-			<NuxtPage />
-		</div>
+		<NuxtPage />
+		<Footer />
 	</div>
 </template>
 
@@ -21,7 +19,23 @@
 }
 
 .limit-width {
-	max-width: 1080px;
+	max-width: 1000px;
 	margin: 0 auto;
+}
+
+.v-popper--theme-tooltip .v-popper__inner {
+	background: white;
+	color: black;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.page-enter-active,
+.page-leave-active {
+	transition: all 0.1s;
+}
+.page-enter-from,
+.page-leave-to {
+	opacity: 0;
+	filter: blur(1rem);
 }
 </style>
