@@ -2,6 +2,7 @@
 	<div class="body">
 		<NuxtPage />
 		<Footer />
+		<ScrollToTop />
 	</div>
 </template>
 
@@ -16,6 +17,7 @@
 	/* Used as a "virtual" body, as Nuxt already has a body */
 	overflow-y: hidden;
 	font-family: "Quicksand";
+	scroll-behavior: smooth;
 }
 
 .limit-width {

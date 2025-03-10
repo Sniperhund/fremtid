@@ -13,7 +13,7 @@ const tooltipHelper = (tooltipKey: keyof typeof tooltip) => {
 
 <template>
 	<div>
-		<Hero image="/long-hero.webp" />
+		<Hero src="/long-hero.webp" />
 		<section class="limit-width" id="sections">
 			<article>
 				<h1>
@@ -105,8 +105,8 @@ const tooltipHelper = (tooltipKey: keyof typeof tooltip) => {
 					robotter" realitet i de kommende år, bliver de ikke bare
 					støttende soldater, de vil være våben som kan tage
 					menneskeliv på en stor skala, uden nogle direkte menneskelig
-					styring (Omskrives maybe?) eller den følelsesmæssige og
-					psykologiske påvirkning der medfølger.
+					styring eller den følelsesmæssige og psykologiske påvirkning
+					der medfølger.
 				</p>
 
 				<ul class="list-disc list-inside">
@@ -212,6 +212,51 @@ const tooltipHelper = (tooltipKey: keyof typeof tooltip) => {
 					direkte i militæret, både i deres værktøj og taktikker.
 				</p>
 			</article>
+
+			<article>
+				<h2>
+					Den målretter sandhed: AI og våbenisering af information
+				</h2>
+
+				<p>
+					Ud over den blodige slagmark er AI i fuld gang med at ændre
+					informationskrig og propaganda. Denne udvikling rækker ud
+					over simpel propaganda og er ved at blive til avanceret
+					manipulation af offentlighedens holdning og strategisk
+					indflydelse. <br />
+					AI's evne til at analyser store datasæt fra sociale medier,
+					nyhedsartikler og adfærd online gør det muligt at skabe
+					meget målrettede og personlige propaganda. <br />
+					Forestil dig, at AI algoritmer skaber en historie, der giver
+					genklang hos specifikke demografer, og udnytter eksisterende
+					holdninger til at manipulere den offentlige holdning om
+					f.eks. krig<br />
+					I en fremtidig krig bliver evnen til mere specifik
+					målretning og psykologisk manipulation en stor trussel mod
+					demokratiske principper og samfundets stabilitet.
+				</p>
+
+				<p>
+					Desuden kan AI allerede generere <i>deepfakes</i>, som er
+					realistiske men fabrikerede videoer eller lyd optagelser, og
+					de bliver kun bedre som ny teknologi udvikles.<br />
+					Disse <i>deepfakes</i> kan blive brugt til at sprede
+					misinformation og miskreditere politiske fjender og kan
+					sløre linjerne mellem sandheden og fabrikation og gøre det
+					endnu svære at se forskel på sandhed og løgne
+				</p>
+
+				<p class="mt-3">
+					Nedenunder er en lille video jeg har lavet med deepfake, det
+					her er hvad omkring 12 timers træning, en enkel GPU og et
+					meget lille datasæt kan få dig, hvad kunne der blive lavet
+					med længere træningstid og en massere GPU'er?
+				</p>
+
+				<video controls onloadstart="this.volume = 0">
+					<source src="" type="" />
+				</video>
+			</article>
 		</section>
 	</div>
 </template>
@@ -224,6 +269,12 @@ const tooltipHelper = (tooltipKey: keyof typeof tooltip) => {
 	flex-direction: column;
 	gap: 10px;
 
+	article {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+	}
+
 	h1 {
 		font-size: 2rem;
 		margin-bottom: 10px;
@@ -233,6 +284,7 @@ const tooltipHelper = (tooltipKey: keyof typeof tooltip) => {
 		margin-top: 20px;
 		font-size: 1.5rem;
 		border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+		margin-bottom: 5px;
 	}
 
 	a {

@@ -1,9 +1,15 @@
 <script setup lang="ts">
-const props = defineProps<{ image: string }>()
+const { src, type = "image" } = defineProps<{
+	src: string
+	type?: "video" | "image"
+}>()
 </script>
 
 <template>
-	<img :src="props.image" class="image" />
+	<img v-if="type == 'image'" :src="src" class="image" />
+	<video v-else autoplay muted>
+		<source :src="src" />
+	</video>
 </template>
 
 <style lang="css" scoped>
