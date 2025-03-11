@@ -16,11 +16,6 @@ const tooltipHelper = (tooltipKey: keyof typeof tooltip) => {
 		<Hero src="/long-hero.webp" />
 		<section class="limit-width" id="sections">
 			<article>
-				<h1>
-					AI som et krigsvåben: Er vi klar til en algoritmisk
-					slagsmark
-				</h1>
-
 				<h2>Introduktion</h2>
 
 				<p>
@@ -260,48 +255,3 @@ const tooltipHelper = (tooltipKey: keyof typeof tooltip) => {
 		</section>
 	</div>
 </template>
-
-<style lang="css" scoped>
-#sections {
-	padding-top: 20px;
-
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
-
-	article {
-		display: flex;
-		flex-direction: column;
-		gap: 5px;
-	}
-
-	h1 {
-		font-size: 2rem;
-		margin-bottom: 10px;
-	}
-
-	h2 {
-		margin-top: 20px;
-		font-size: 1.5rem;
-		border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-		margin-bottom: 5px;
-	}
-
-	a {
-		color: rgba(0, 0, 150);
-	}
-
-	li:not(:last-child) {
-		padding-bottom: 5px;
-	}
-
-	span {
-		text-decoration: underline dotted;
-	}
-
-	video {
-		margin-top: 10px;
-		margin-bottom: 20px;
-	}
-}
-</style>

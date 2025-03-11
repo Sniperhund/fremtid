@@ -13,15 +13,18 @@
 	box-sizing: border-box;
 }
 
-.body {
-	/* Used as a "virtual" body, as Nuxt already has a body */
-	overflow-y: hidden;
-	font-family: "Quicksand";
+html {
 	scroll-behavior: smooth;
 }
 
+.body {
+	/* Used as a "virtual" body, as Nuxt already has a body */
+	font-family: "Quicksand";
+}
+
 .limit-width {
-	max-width: 1000px;
+	max-width: calc(1000px + 1.5rem);
+	padding: 0 1.5rem;
 	margin: 0 auto;
 }
 
