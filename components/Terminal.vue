@@ -48,6 +48,12 @@ const scrollDown = () => {
 let times: number[] = []
 
 const animate = () => {
+	const highestId = window.setTimeout(() => {
+		for (let i = highestId; i >= 0; i--) {
+			window.clearInterval(i)
+		}
+	}, 0)
+
 	Text.map((value) => {
 		let time = value.time * 1000
 
