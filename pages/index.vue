@@ -30,6 +30,8 @@ onBeforeUnmount(() => {
 				AI som et krigsvåben: Er vi klar til en algoritmisk slagsmark
 			</h1>
 
+			<NuxtLink to="/long">Gå til detaileret version</NuxtLink>
+
 			<section class="table-of-contents">
 				<h2>Indholdsfortegnelse</h2>
 
@@ -133,6 +135,8 @@ onBeforeUnmount(() => {
 
 				<!-- Fancy shit -->
 			</article>
+
+			<NuxtLink to="/long">Gå til detaileret version</NuxtLink>
 		</section>
 	</div>
 </template>
