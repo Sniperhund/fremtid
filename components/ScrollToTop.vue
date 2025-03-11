@@ -4,8 +4,6 @@ const app = useNuxtApp()
 const showScrollToTop = useState("scrollToTop", () => false)
 
 const handleScroll = () => {
-	console.log(showScrollToTop.value)
-
 	if (window.scrollY > 600) {
 		showScrollToTop.value = true
 	} else {

@@ -3,10 +3,11 @@ const parallaxImage = useTemplateRef("image")
 
 const handleScroll = () => {
 	if (parallaxImage.value) {
-		const scrollPosition = window.scrollY
-		parallaxImage.value.style.transform = `translateY(${
-			scrollPosition * 0.35
-		}px)`
+		let parallaxImageScroll = window.scrollY * 0.35
+
+		if (parallaxImageScroll > 200) parallaxImageScroll = 200
+
+		parallaxImage.value.style.transform = `translateY(${parallaxImageScroll}px)`
 	}
 }
 
@@ -142,6 +143,10 @@ onBeforeUnmount(() => {
 </template>
 
 <style lang="css" scoped>
+#sections {
+	padding-bottom: 100px;
+}
+
 #sections .table-of-contents {
 	& h2 {
 		font-size: 1.4rem;
@@ -160,6 +165,6 @@ onBeforeUnmount(() => {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
-	transition: transform 0.05s ease-out;
+	/*transition: transform 0.05s ease-out;*/
 }
 </style>
