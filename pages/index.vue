@@ -110,7 +110,7 @@ onBeforeUnmount(() => {
 			<article>
 				<h2 id="revolution">Hvad der driver ændringen</h2>
 
-				<p>
+				<p class="mb-4">
 					Ny teknologi driver denne nye æra. Fra avanceret GPU'er, der
 					hjælper med læring, til realistiske simulationer, der træner
 					soldater, gør innovationen af AI til en vigtig del af
@@ -137,7 +137,9 @@ onBeforeUnmount(() => {
 				<!-- Fancy shit -->
 			</article>
 
-			<NuxtLink to="/long">Gå til detaileret version</NuxtLink>
+			<NuxtLink to="/long" class="mt-2"
+				>Gå til detaileret version</NuxtLink
+			>
 		</section>
 	</div>
 </template>

@@ -9,6 +9,23 @@ const tooltip = {
 const tooltipHelper = (tooltipKey: keyof typeof tooltip) => {
 	return { content: tooltip[tooltipKey], html: true }
 }
+
+const video = useTemplateRef("video")
+
+onMounted(() => {
+	const observer = new IntersectionObserver(
+		(entries) => {
+			if (!entries[0].isIntersecting) return
+
+			if (video.value) video.value.play()
+		},
+		{
+			threshold: 0.25,
+		}
+	)
+
+	observer.observe(video.value!)
+})
 </script>
 
 <template>
@@ -123,22 +140,33 @@ const tooltipHelper = (tooltipKey: keyof typeof tooltip) => {
 						lovmæssige og etiske spørgsmål som vi først lige er
 						begyndt at tænke over.
 					</li>
-					<li>
-						<strong>Truslen om algoritmisk eskalering:</strong>
-						Efterhånden som AI bliver både hurtigere og mere
-						selvstændige vokser chancen for en hurtig og utilsigtet
-						eskalering i fremtidens konflikter. Forestil dig
-						fremtidige krige, hvor algoritmiske reaktioner skaber
-						modsvar med en hastighed end vores menneskelige
-						forståelse og evne til at gribe ind. Kunne det skabe en
-						ny æra af hyper-eskalering, hvor en konflikt kommer ud
-						af kontrol med en aldrig set før hastighed og en
-						ødelæggende effektivitet, så menneskeheden må forsøge at
-						genvinde kontrollen ligesom i
-						<span v-tooltip="tooltipHelper('tooMuchScienceFiction')"
-							>"Terminator"</span
-						>?
-					</li>
+					<div class="sm:flex gap-3">
+						<li>
+							<strong>Truslen om algoritmisk eskalering:</strong>
+							Efterhånden som AI bliver både hurtigere og mere
+							selvstændige vokser chancen for en hurtig og
+							utilsigtet eskalering i fremtidens konflikter.
+							Forestil dig fremtidige krige, hvor algoritmiske
+							reaktioner skaber modsvar med en hastighed end vores
+							menneskelige forståelse og evne til at gribe ind.
+							Kunne det skabe en ny æra af hyper-eskalering, hvor
+							en konflikt kommer ud af kontrol med en aldrig set
+							før hastighed og en ødelæggende effektivitet, så
+							menneskeheden må forsøge at genvinde kontrollen
+							ligesom i
+							<span
+								v-tooltip="
+									tooltipHelper('tooMuchScienceFiction')
+								"
+								>"Terminator"</span
+							>?
+						</li>
+
+						<img
+							src="/terminator.webp"
+							class="terminator hidden md:block"
+						/>
+					</div>
 				</ul>
 			</article>
 
@@ -248,10 +276,20 @@ const tooltipHelper = (tooltipKey: keyof typeof tooltip) => {
 					med længere træningstid og en massere GPU'er?
 				</p>
 
-				<video controls onloadstart="this.volume = 0">
-					<source src="" type="" />
+				<video onloadstart="this.volume = 0" ref="video">
+					<source src="/deepfake.webm" type="video/webm" />
 				</video>
 			</article>
 		</section>
 	</div>
 </template>
+
+<style lang="css" scoped>
+.terminator {
+	width: 400px;
+	height: 300px;
+
+	object-fit: cover;
+	border-radius: 10px;
+}
+</style>
