@@ -35,6 +35,16 @@
 		text-decoration: underline dotted;
 	}
 
+	img {
+		object-fit: cover;
+		scale: 100%;
+		transition: scale 150ms cubic-bezier(0.4, 0, 0.2, 1);
+
+		&:hover {
+			scale: 103%;
+		}
+	}
+
 	video {
 		margin-top: 10px;
 		margin-bottom: 20px;

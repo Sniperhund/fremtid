@@ -43,7 +43,7 @@ const handleVideoClick = async () => {
 const video1 = useTemplateRef("video-1")
 const video2 = useTemplateRef("video-2")
 let interval: NodeJS.Timeout
-
+/*
 onMounted(() => {
 	interval = setInterval(() => {
 		if (!video1.value || !video2.value) return
@@ -56,7 +56,7 @@ onUnmounted(() => {
 	if (!interval) return
 
 	clearInterval(interval)
-})
+})*/
 </script>
 
 <template>
@@ -107,12 +107,14 @@ onUnmounted(() => {
 				<h2 id="era">Opdag den nye æra af krigsførelse</h2>
 
 				<p>
-					AI er ikke kun for selvkørende biler, det ændrer også
-					krigsførelse. Forestil dig slagmarker, hvor algoritmer, ikke
-					kun menneskelige soldater, bestemmer resultatet på
-					millisekunder.<br />
-					Selvstændige droner, lyn-hurtigt cyberforsvar og datadrevet
-					strategier ændrer allerede militære taktikker i dag.
+					AI er ikke kun for selvkørende biler eller smart hjem, det
+					ændrer også krigsførelse. Forestil dig slagmarker, hvor det
+					er algoritmer, ikke kun menneskelige soldater, der tager
+					valgene.<br />
+					Det betyder at computere i den nære fremtid selv kan
+					bestemme, hvem de vil angribe. Dette kan gøre krigsførelse
+					hurtigere og mere effektivt, men det stiller også nogle
+					store spørgsmål om sikkerhed, etik og kontrol.
 				</p>
 
 				<!-- Fancy shit -->
@@ -123,13 +125,19 @@ onUnmounted(() => {
 					De etiske dilemmaer og hurtig eskalation
 				</h2>
 
-				<p>
-					Hvem tager ansvaret, når en maskine tager en liv eller
-					død-beslutning? I og med at AI får en større rolle, står vi
-					over for uset etiske problemer og risikoen for algoritmisk
-					eskalering, hvor krige kan komme ud af kontrol, før vi
-					overhovedet forstår, hvad der sker.
-				</p>
+				<div class="flex gap-[10px]">
+					<p>
+						Hvem tager ansvaret, når en maskine tager en liv eller
+						død-beslutning?<br />
+						I og med at AI får en større rolle, står vi over for
+						uset etiske problemer og risikoen for algoritmisk
+						eskalering, hvor krige kan komme ud af kontrol, før vi
+						overhovedet forstår, hvad der sker.
+					</p>
+
+					<!-- It's such a shame I don't have enough time to make this fullscreen -->
+					<img src="/prototype-autonomous-robot.webp" class="h-44" />
+				</div>
 
 				<!-- Fancy shit -->
 			</article>
