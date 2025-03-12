@@ -1,4 +1,8 @@
 <script setup lang="ts">
+useHead({
+	title: "Fremtid",
+})
+
 const parallaxImage = useTemplateRef("image")
 
 const handleScroll = () => {
@@ -7,6 +11,7 @@ const handleScroll = () => {
 
 		if (parallaxImageScroll > 200) parallaxImageScroll = 200
 
+		// FIX: It's lagging behind when I move too fast?
 		parallaxImage.value.style.transform = `translateY(${parallaxImageScroll}px)`
 	}
 }
@@ -18,10 +23,45 @@ onMounted(() => {
 onBeforeUnmount(() => {
 	window.removeEventListener("scroll", handleScroll)
 })
+
+let counter = 0
+let timeout: NodeJS.Timeout
+
+const handleVideoClick = async () => {
+	counter++
+
+	if (counter > 10) {
+		await navigateTo("/joe-biden")
+	}
+
+	clearTimeout(timeout)
+	timeout = setTimeout(() => {
+		counter = 0
+	}, 15 * 1000)
+}
+
+const video1 = useTemplateRef("video-1")
+const video2 = useTemplateRef("video-2")
+let interval: NodeJS.Timeout
+
+onMounted(() => {
+	interval = setInterval(() => {
+		if (!video1.value || !video2.value) return
+
+		video2.value.currentTime = video1.value.currentTime
+	}, 100)
+})
+
+onUnmounted(() => {
+	if (!interval) return
+
+	clearInterval(interval)
+})
 </script>
 
 <template>
 	<div>
+		<!-- Why the actual fuck doesn't this JUST WORK!!! -->
 		<div class="image-container">
 			<img src="/short-hero.webp" class="image" ref="image" />
 		</div>
@@ -119,7 +159,9 @@ onBeforeUnmount(() => {
 				</p>
 
 				<!-- Don't ask me, it's maybe not the best to use for this...
-					 But I don't really have any better ideas lol -->
+					 But I don't really have any better ideas lol
+					 
+					 And sometimes it just dies? Like stops working lol -->
 				<Terminal />
 			</article>
 
@@ -134,7 +176,38 @@ onBeforeUnmount(() => {
 					moderne informationskrig.
 				</p>
 
-				<!-- Fancy shit -->
+				<p class="mt-3">
+					Nedenunder er en lille video jeg har lavet med deepfake, det
+					her er hvad omkring 12 timers træning, en enkel GPU og et
+					meget lille datasæt kan få dig, hvad kunne der blive lavet
+					med længere træningstid og en massere GPU'er?
+				</p>
+
+				<div
+					v-tooltip="tooltipHelper('deepfake')"
+					@click="handleVideoClick"
+				>
+					<BeforeAndAfterSlider>
+						<template #before>
+							<video
+								src="/result_trimmed_original.mp4"
+								autoplay
+								loop
+								muted
+								ref="video-1"
+							/>
+						</template>
+						<template #after>
+							<video
+								src="/result_trimmed.mp4"
+								autoplay
+								loop
+								muted
+								ref="video-2"
+							/>
+						</template>
+					</BeforeAndAfterSlider>
+				</div>
 			</article>
 
 			<NuxtLink to="/long" class="mt-2"

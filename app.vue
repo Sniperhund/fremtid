@@ -20,6 +20,7 @@ html {
 .body {
 	/* Used as a "virtual" body, as Nuxt already has a body */
 	font-family: "Quicksand";
+	overflow-x: hidden;
 }
 
 .limit-width {

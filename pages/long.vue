@@ -1,36 +1,12 @@
 <script setup lang="ts">
-const tooltip = {
-	unconfirmed:
-		"Jeg har dog ikke verificere nogen<br /> kamp mellem autonome droner og fjenden",
-	tooMuchScienceFiction: "Måske lidt for meget science fiction",
-	logistics: "LOGISTICS IS EVERYTHING - TommyKay",
-}
-
-const tooltipHelper = (tooltipKey: keyof typeof tooltip) => {
-	return { content: tooltip[tooltipKey], html: true }
-}
-
-const video = useTemplateRef("video")
-
-onMounted(() => {
-	const observer = new IntersectionObserver(
-		(entries) => {
-			if (!entries[0].isIntersecting) return
-
-			if (video.value) video.value.play()
-		},
-		{
-			threshold: 0.25,
-		}
-	)
-
-	observer.observe(video.value!)
+useHead({
+	title: "Fremtid - detaileret version",
 })
 </script>
 
 <template>
 	<div>
-		<Hero src="/long-hero.webp" />
+		<Hero src="/long-hero.webp" alt="Hero" />
 		<section class="limit-width" id="sections">
 			<article>
 				<h2>Introduktion</h2>
@@ -101,6 +77,12 @@ onMounted(() => {
 						infrastruktur.
 					</li>
 				</ul>
+
+				<img
+					src="/drone.webp"
+					alt="Drone"
+					v-tooltip="tooltipHelper('drone')"
+				/>
 			</article>
 
 			<article>
@@ -268,17 +250,6 @@ onMounted(() => {
 					sløre linjerne mellem sandheden og fabrikation og gøre det
 					endnu svære at se forskel på sandhed og løgne
 				</p>
-
-				<p class="mt-3">
-					Nedenunder er en lille video jeg har lavet med deepfake, det
-					her er hvad omkring 12 timers træning, en enkel GPU og et
-					meget lille datasæt kan få dig, hvad kunne der blive lavet
-					med længere træningstid og en massere GPU'er?
-				</p>
-
-				<video onloadstart="this.volume = 0" ref="video">
-					<source src="/deepfake.webm" type="video/webm" />
-				</video>
 			</article>
 		</section>
 	</div>
@@ -290,6 +261,5 @@ onMounted(() => {
 	height: 300px;
 
 	object-fit: cover;
-	border-radius: 10px;
 }
 </style>
